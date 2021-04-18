@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun ahoj(){
-        System.out.println("Ahoj");
+    //smazal jsem ti metodu haha
     }
 
     //uz to vypada ze to funguje
