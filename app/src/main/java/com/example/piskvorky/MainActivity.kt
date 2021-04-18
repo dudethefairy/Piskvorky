@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun ahoj(){
-
+        System.out.println("Ahoj");
     }
+
+    //uz to vypada ze to funguje
 }
