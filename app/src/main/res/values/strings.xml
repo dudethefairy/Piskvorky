@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Piskvorky</string>
+    <string name="nadpis">Piškvorky</string>
+    <string name="podnadpis">Tomáš Zlatohlávek, Filip Mička</string>
+    <string name="butt_newgame">Nová hra</string>
+    <string name="radio_hrac">RadioButton</string>
+    <string name="radio_pocitac">RadioButton</string>
+    <string name="radio_butt_hrac">Hráč vs. Hráč</string>
+    <string name="radio_butt_pocitac">Hráč vs. Počítač</string>
 </resources>

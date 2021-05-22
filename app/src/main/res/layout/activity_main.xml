@@ -4,15 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:background="@drawable/pozadi"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/layout_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="100dp"
+        tools:layout_editor_absoluteX="194dp"
+        tools:layout_editor_absoluteY="314dp">
 
+        <TextView
+            android:id="@+id/nadpis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#B8B9E6"
+            android:text="@string/nadpis"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#A82828"
+            android:textColorHint="#FFFFFF"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/nadpis2"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="#B8B9E6"
+            android:text="@string/podnadpis"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="#A82828"
+            android:textColorHint="#FFFFFF"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/radio_select"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="#B8B9E6"
+            android:checkedButton="@id/radio_hrac"
+            android:paddingLeft="20pt"
+            android:paddingRight="20pt">
+
+            <RadioButton
+                android:id="@+id/radio_hrac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_butt_hrac" />
+
+            <RadioButton
+                android:id="@+id/radio_pocitac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/radio_butt_pocitac" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/butt_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20pt"
+            android:layout_marginTop="50pt"
+            android:layout_marginRight="20pt"
+            android:background="#5B5C97"
+            android:text="@string/butt_newgame"
+            android:textColor="#DADAF1"
+            tools:visibility="visible" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
