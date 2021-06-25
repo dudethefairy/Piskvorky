@@ -8,44 +8,45 @@
 
     <GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="401dp"
-        android:layout_height="613dp"
+        android:layout_width="414dp"
+        android:layout_height="450dp"
         android:layout_margin="10sp"
-        android:columnCount="7"
-        android:rowCount="7"
+        android:columnCount="8"
+        android:rowCount="8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.448">
 
     </GridLayout>
 
     <TextView
         android:id="@+id/textViewInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="281dp"
+        android:layout_height="31dp"
         android:text="hraje 1. hráč"
-        android:textSize="20dp"
+        android:textAlignment="center"
         android:textColor="@color/purple_500"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.683"
+        app:layout_constraintHorizontal_bias="0.876"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953" />
+        app:layout_constraintVertical_bias="0.952" />
 
     <Button
         android:id="@+id/buttonKonec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/purple_500"
         android:text="konec"
         android:textColor="@color/black"
-        android:background="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.244"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.951" />>
