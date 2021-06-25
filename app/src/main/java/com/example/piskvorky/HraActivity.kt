@@ -10,9 +10,12 @@ import android.widget.LinearLayout
 
 class HraActivity : AppCompatActivity() {
 
-    val radky : Int = 10
-    val sloupce : Int = 7
-    val pole = Array(radky, {IntArray(sloupce)})
+    private val radky : Int = 7
+    private val sloupce : Int = 7
+    private val pole = Array(radky, {IntArray(sloupce)})
+    private var hrajiciHrac : Int = 1
+    private val textViewInfo by lazy { findViewById<Button>(R.id.textViewInfo) }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,12 +25,10 @@ class HraActivity : AppCompatActivity() {
 
         val layout = findViewById(R.id.gridLayout) as GridLayout
 
-        // add Button to LinearLayout
-
         //vykreslení hrací plochy (tlačítek)
-        for (i in 0..9) {
-            for (j in 0..6) {
-
+        for (i in 0..radky-1) {
+            for (j in 0..sloupce-1) {
+                //vytvoreni tlacitka
                 val button1 = ImageButton(this)
                 button1.setImageDrawable(getResources().getDrawable(R.drawable.prazdne))
                 // setting layout_width and layout_height using layout parameter
@@ -35,11 +36,25 @@ class HraActivity : AppCompatActivity() {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
+                //tlacitko ovlada urcity index v 2D poli
                 button1.setOnClickListener{
-                    pole[i][j] = 5
-                    System.out.println(pole[i][j])
-                    System.out.println("radek " + i)
-                    System.out.println("sloupec " + j)
+                    if(pole[i][j] != 0) {
+                        //hrac obsadi policko
+                        pole[i][j] = hrajiciHrac
+                        //kontrola zda nekdo jiz nevyhral
+
+
+
+                        //v pristim tahu hraje druhy hrac
+                        if (hrajiciHrac == 1) {
+                            hrajiciHrac = 2
+                        }else {
+                            hrajiciHrac = 1
+                        }
+                    } else {
+                        textViewInfo.setText("toto pole je již obsazeno !")
+                    }
+
                 }
 
                 layout.addView(button1)
