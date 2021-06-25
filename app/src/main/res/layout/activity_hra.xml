@@ -12,7 +12,9 @@
         android:layout_height="match_parent"
         android:layout_margin="10sp"
         android:columnCount="7"
-        android:rowCount="7"
+        android:rowCount="10"
         tools:layout_editor_absoluteX="105dp"
-        tools:layout_editor_absoluteY="-131dp" />
+        tools:layout_editor_absoluteY="-131dp">
+
+    </GridLayout>>
 </androidx.constraintlayout.widget.ConstraintLayout>
