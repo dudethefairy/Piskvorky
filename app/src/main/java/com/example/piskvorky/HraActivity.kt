@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.get
 import kotlin.random.Random
 
 class HraActivity : AppCompatActivity() {
@@ -18,18 +19,18 @@ class HraActivity : AppCompatActivity() {
     private var pocetTahu : Int = 0
     private var hrac1 : String = ""
     private var hrac2 : String = ""
-
-
-
+    private var seznamTlacitek: ArrayList<ImageButton> = arrayListOf()
+    private val buttonKonec by lazy {findViewById<Button>(R.id.buttonKonec)}
+    private val textViewInfo by lazy {findViewById<TextView>(R.id.textViewInfo)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hra)
 
 
-        val textViewInfo = findViewById<TextView>(R.id.textViewInfo)
+        //val textViewInfo = findViewById<TextView>(R.id.textViewInfo)
         val layout = findViewById(R.id.gridLayout) as GridLayout
-        val buttonKonec = findViewById<Button>(R.id.buttonKonec)
+        //val buttonKonec = findViewById<Button>(R.id.buttonKonec)
         val pocitac = intent.getStringExtra("pocitac")
 
         //navrat zpet na uvodni plochu
@@ -59,7 +60,7 @@ class HraActivity : AppCompatActivity() {
                         pole[i][j] = hrajiciHrac
 
 
-                        //když hraje hrac proti pocitaci
+                        //když hraje hrac proti hraci
                         if(pocitac.equals("false")) {
                             //v pristim tahu hraje druhy hrac
                             System.out.println("HRAJE HRAC PROTI HRACI")
@@ -77,28 +78,35 @@ class HraActivity : AppCompatActivity() {
 
                         //kontrola zda jiz někdo nevyhral
                         val vysledek = zkontrolujVyhru()
+                        zjistiVysledek(vysledek)
 
-                        if (vysledek != 0) {
-                            textViewInfo.setText("konec hry, vyhrál " + vysledek + " hráč !")
-                            val intent = Intent(this, VyhraActivity::class.java)
-                            intent.putExtra("vitez", "vítězem se stává " + vysledek + ". hráč")
-                            intent.putExtra("pocetTahu", pocetTahu.toString())
-                            startActivity(intent)
-                        }else{
-                            if (vysledek == 3) textViewInfo.setText("konec hry, pole je zcela zaplneno !")
-                        }
 
                         //když hraje háč proti počítači
                         if(pocitac.equals("true")) {
-                            //v pristim tahu hraje druhy hrac
-                            System.out.println("HRAJE POČÍTAČ")
+                            button1.setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
+                            textViewInfo.setText("hraje počítač !")
                             var konec: Boolean = false
                             do{
                                 val radek = (0..velikost-1).random()
                                 System.out.println(radek)
                                 val sloupec = (0..velikost-1).random()
                                 System.out.println(sloupec)
-                                konec = true
+
+                                //kontrola zda vygenerované indexy v poli jiz nejsou obsazeny
+                                if(pole[radek][sloupec] == 0) {
+                                    konec = false
+                                    pole[radek][sloupec] = 2
+                                    seznamTlacitek.get(radek*velikost + sloupec).setImageDrawable(getResources().getDrawable(R.drawable.krizek))
+                                    //kontrola zda jiz někdo nevyhral
+                                    val vysledek = zkontrolujVyhru()
+                                    zjistiVysledek(vysledek)
+                                    //po počítačí hraje opět hráč
+                                    textViewInfo.setText("hraje 1. hráč !")
+                                }else {
+                                    //pole je obsazeno, nové generování
+                                    konec = true
+                                }
+
                             }while(konec)
                         }
 
@@ -108,7 +116,7 @@ class HraActivity : AppCompatActivity() {
                     }
 
                 }
-
+                seznamTlacitek.add(button1)
                 layout.addView(button1)
 
             }
@@ -180,6 +188,23 @@ class HraActivity : AppCompatActivity() {
             return 3 // Konec - vsechny policka obsazeny
         }
         return 0
+    }
+
+    private fun zjistiVysledek(vysledek: Int){
+        val pocitac = intent.getStringExtra("pocitac")
+        if (vysledek != 0) {
+            textViewInfo.setText("konec hry, vyhrál " + vysledek + " hráč !")
+            val intent = Intent(this, VyhraActivity::class.java)
+            if(vysledek == 2 && pocitac.equals("true")) {
+                intent.putExtra("vitez", "vítězem se stává počítač")
+            }else {
+                intent.putExtra("vitez", "vítězem se stává " + vysledek + ". hráč")
+            }
+            intent.putExtra("pocetTahu", pocetTahu.toString())
+            startActivity(intent)
+        }else{
+            if (vysledek == 3) textViewInfo.setText("konec hry, pole je zcela zaplneno !")
+        }
     }
 
 }

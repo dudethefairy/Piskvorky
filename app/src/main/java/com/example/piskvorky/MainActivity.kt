@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, HraActivity::class.java)
 
         //předání zprávy zda hraje počítač
-        if(pocitac.isSelected()) {
+        if(pocitac.isChecked) {
             intent.putExtra("pocitac", "true")
         }else{
             intent.putExtra("pocitac", "false")
