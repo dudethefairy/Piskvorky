@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.RadioButton
 
 class MainActivity : AppCompatActivity() {
     //Testovací commit
@@ -18,7 +19,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     public fun clickStartListener(){
+        val pocitac = findViewById<RadioButton>(R.id.radio_pocitac)
         val intent = Intent(this, HraActivity::class.java)
+
+        //předání zprávy zda hraje počítač
+        if(pocitac.isSelected) {
+            intent.putExtra("pocitac", true)
+        }else {
+            intent.putExtra("pocitac", false)
+        }
+        //spustení aktivity se samotnou hrou
         startActivity(intent)
     }
 

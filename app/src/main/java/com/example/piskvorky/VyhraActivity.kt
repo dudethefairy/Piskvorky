@@ -11,10 +11,15 @@ class VyhraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_vyhra)
 
+        //výpis vítěze
         val vitez = intent.getStringExtra("vitez")
         val textViewVitez = findViewById<TextView>(R.id.textViewVitez)
         textViewVitez.setText(vitez)
 
+        val pocetTahu = intent.getStringExtra("pocetTahu")
+        //TODO výpis počtu tahu + uloženi do databáze
+
+        //návrat zpět na úvodní plochu
         val buttonKonec = findViewById<Button>(R.id.buttonOK)
         buttonKonec.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)

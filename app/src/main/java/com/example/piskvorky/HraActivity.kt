@@ -15,6 +15,10 @@ class HraActivity : AppCompatActivity() {
     private val pole = Array(velikost, {IntArray(velikost)})
     private var hrajiciHrac : Int = 1
     private var pocetTahu : Int = 0
+    private var hrac1 : String = ""
+    private var hrac2 : String = ""
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,12 +67,13 @@ class HraActivity : AppCompatActivity() {
                             textViewInfo.setText("hraje 1. hráč !")
                         }
 
-                        //kontrola zda nekdo jiz někdo nevyhral
+                        //kontrola zda jiz někdo nevyhral
                         val vysledek = zkontrolujVyhru()
                         if (vysledek != 0) {
                             textViewInfo.setText("konec hry, vyhrál " + vysledek + " hráč !")
                             val intent = Intent(this, VyhraActivity::class.java)
                             intent.putExtra("vitez", "vítězem se stává " + vysledek + ". hráč")
+                            intent.putExtra("pocetTahu", pocetTahu.toString())
                             startActivity(intent)
                         }else{
                             if (vysledek == 3) textViewInfo.setText("konec hry, pole je zcela zaplneno !")

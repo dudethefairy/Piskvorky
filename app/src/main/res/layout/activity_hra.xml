@@ -8,9 +8,10 @@
 
     <GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="414dp"
-        android:layout_height="450dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="10sp"
+        android:background="@color/teal_200"
         android:columnCount="8"
         android:rowCount="8"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,6 +29,7 @@
         android:layout_height="31dp"
         android:text="hraje 1. hráč"
         android:textAlignment="center"
+        android:textStyle="bold"
         android:textColor="@color/purple_500"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
