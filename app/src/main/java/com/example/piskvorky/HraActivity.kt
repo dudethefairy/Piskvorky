@@ -3,6 +3,7 @@ package com.example.piskvorky
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.concurrent.schedule
 import kotlin.random.Random
+import android.widget.LinearLayout as LinearLayout
 
 class HraActivity : AppCompatActivity() {
 
@@ -52,10 +54,21 @@ class HraActivity : AppCompatActivity() {
                 val button1 = ImageButton(this)
                 button1.setImageDrawable(getResources().getDrawable(R.drawable.prazdne))
                 // setting layout_width and layout_height using layout parameter
-                button1.layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT
+                val param = GridLayout.LayoutParams(
                 )
+                param.columnSpec = GridLayout.spec(i)
+                param.rowSpec = GridLayout.spec(j)
+                param.height = 130
+                param.width = 130
+                param.setGravity(Gravity.NO_GRAVITY)
+
+                button1.layoutParams = param
+                /*button1.layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                )*/
+
+
                 //tlacitko ovlada urcity index v 2D poli
                 button1.setOnClickListener{
                     //kontrola zda již není pole obsazeno
