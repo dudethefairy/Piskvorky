@@ -99,6 +99,7 @@ class HraActivity : AppCompatActivity() {
                                 val sloupec = (0..velikost-1).random()
 
 
+
                                 //kontrola zda vygenerované indexy v poli jiz nejsou obsazeny
                                 if(pole[radek][sloupec] == 0) {
                                     konec = false
