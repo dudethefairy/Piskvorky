@@ -2,10 +2,15 @@ package com.example.piskvorky
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
+import java.sql.Time
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.concurrent.schedule
 import kotlin.random.Random
 
 class HraActivity : AppCompatActivity() {
@@ -22,6 +27,7 @@ class HraActivity : AppCompatActivity() {
     private var seznamTlacitek: ArrayList<ImageButton> = arrayListOf()
     private val buttonKonec by lazy {findViewById<Button>(R.id.buttonKonec)}
     private val textViewInfo by lazy {findViewById<TextView>(R.id.textViewInfo)}
+    private val imageViewHrajici by lazy {findViewById<ImageView>(R.id.imageViewHrajici)}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,16 +69,16 @@ class HraActivity : AppCompatActivity() {
                         //když hraje hrac proti hraci
                         if(pocitac.equals("false")) {
                             //v pristim tahu hraje druhy hrac
-                            System.out.println("HRAJE HRAC PROTI HRACI")
-                            System.out.println(pocitac)
                             if (hrajiciHrac == 1) {
                                 button1.setImageDrawable(getResources().getDrawable(R.drawable.krizek)) //1. hráč má křížek, 2. kolecko
                                 hrajiciHrac = 2
-                                textViewInfo.setText("hraje 2. hráč !")
+                                textViewInfo.setText("hraje 2. hráč ! : ")
+                                imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
                             } else {
                                 button1.setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
                                 hrajiciHrac = 1
-                                textViewInfo.setText("hraje 1. hráč !")
+                                textViewInfo.setText("hraje 1. hráč ! : ")
+                                imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.krizek))
                             }
                         }
 
@@ -83,25 +89,27 @@ class HraActivity : AppCompatActivity() {
 
                         //když hraje háč proti počítači
                         if(pocitac.equals("true")) {
-                            button1.setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
-                            textViewInfo.setText("hraje počítač !")
+                            button1.setImageDrawable(getResources().getDrawable(R.drawable.krizek))
+                            textViewInfo.setText("hraje počítač ! : ")
+                            imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
                             var konec: Boolean = false
                             do{
+                                //genrovani radku a sloupce
                                 val radek = (0..velikost-1).random()
-                                System.out.println(radek)
                                 val sloupec = (0..velikost-1).random()
-                                System.out.println(sloupec)
+
 
                                 //kontrola zda vygenerované indexy v poli jiz nejsou obsazeny
                                 if(pole[radek][sloupec] == 0) {
                                     konec = false
                                     pole[radek][sloupec] = 2
-                                    seznamTlacitek.get(radek*velikost + sloupec).setImageDrawable(getResources().getDrawable(R.drawable.krizek))
+                                    seznamTlacitek.get(radek*velikost + sloupec).setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
                                     //kontrola zda jiz někdo nevyhral
                                     val vysledek = zkontrolujVyhru()
                                     zjistiVysledek(vysledek)
                                     //po počítačí hraje opět hráč
-                                    textViewInfo.setText("hraje 1. hráč !")
+                                    textViewInfo.setText("hraje hráč ! : ")
+                                    imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.krizek))
                                 }else {
                                     //pole je obsazeno, nové generování
                                     konec = true

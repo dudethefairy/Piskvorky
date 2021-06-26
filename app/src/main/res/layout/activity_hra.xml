@@ -25,19 +25,19 @@
 
     <TextView
         android:id="@+id/textViewInfo"
-        android:layout_width="281dp"
-        android:layout_height="31dp"
+        android:layout_width="169dp"
+        android:layout_height="21dp"
         android:text="hraje 1. hráč"
-        android:textAlignment="center"
-        android:textStyle="bold"
+        android:textAlignment="viewEnd"
         android:textColor="@color/purple_500"
         android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintHorizontal_bias="0.306"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.952" />
+        app:layout_constraintVertical_bias="0.835" />
 
     <Button
         android:id="@+id/buttonKonec"
@@ -48,8 +48,19 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951" />>
+        app:layout_constraintVertical_bias="0.942" />
+
+    <ImageView
+        android:id="@+id/imageViewHrajici"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewInfo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.839"
+        app:srcCompat="@drawable/krizek" />>
 </androidx.constraintlayout.widget.ConstraintLayout>
