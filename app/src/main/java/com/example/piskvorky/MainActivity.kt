@@ -7,6 +7,9 @@ import android.widget.Button
 import android.widget.RadioButton
 
 class MainActivity : AppCompatActivity() {
+
+    private val pocitac by lazy {findViewById<RadioButton>(R.id.radio_pocitac)}
+
     //Testovací commit
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,23 +22,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     public fun clickStartListener(){
-        val pocitac = findViewById<RadioButton>(R.id.radio_pocitac)
+
         val intent = Intent(this, HraActivity::class.java)
 
         //předání zprávy zda hraje počítač
-        if(pocitac.isSelected) {
-            intent.putExtra("pocitac", true)
-        }else {
-            intent.putExtra("pocitac", false)
+        if(pocitac.isSelected()) {
+            intent.putExtra("pocitac", "true")
+        }else{
+            intent.putExtra("pocitac", "false")
         }
         //spustení aktivity se samotnou hrou
         startActivity(intent)
     }
-
-    fun ahoj(){
-    //smazal jsem ti metodu haha
-    }
-
-    //uz to vypada ze to funguje
-    //zkouska
 }

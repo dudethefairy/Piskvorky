@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.random.Random
 
 class HraActivity : AppCompatActivity() {
 
@@ -29,6 +30,7 @@ class HraActivity : AppCompatActivity() {
         val textViewInfo = findViewById<TextView>(R.id.textViewInfo)
         val layout = findViewById(R.id.gridLayout) as GridLayout
         val buttonKonec = findViewById<Button>(R.id.buttonKonec)
+        val pocitac = intent.getStringExtra("pocitac")
 
         //navrat zpet na uvodni plochu
         buttonKonec.setOnClickListener{
@@ -56,19 +58,26 @@ class HraActivity : AppCompatActivity() {
                         //hrac obsadi policko
                         pole[i][j] = hrajiciHrac
 
-                        //v pristim tahu hraje druhy hrac
-                        if (hrajiciHrac == 1) {
-                            button1.setImageDrawable(getResources().getDrawable(R.drawable.krizek)) //1. hráč má křížek, 2. kolecko
-                            hrajiciHrac = 2
-                            textViewInfo.setText("hraje 2. hráč !")
-                        }else {
-                            button1.setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
-                            hrajiciHrac = 1
-                            textViewInfo.setText("hraje 1. hráč !")
+
+                        //když hraje hrac proti pocitaci
+                        if(pocitac.equals("false")) {
+                            //v pristim tahu hraje druhy hrac
+                            System.out.println("HRAJE HRAC PROTI HRACI")
+                            System.out.println(pocitac)
+                            if (hrajiciHrac == 1) {
+                                button1.setImageDrawable(getResources().getDrawable(R.drawable.krizek)) //1. hráč má křížek, 2. kolecko
+                                hrajiciHrac = 2
+                                textViewInfo.setText("hraje 2. hráč !")
+                            } else {
+                                button1.setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
+                                hrajiciHrac = 1
+                                textViewInfo.setText("hraje 1. hráč !")
+                            }
                         }
 
                         //kontrola zda jiz někdo nevyhral
                         val vysledek = zkontrolujVyhru()
+
                         if (vysledek != 0) {
                             textViewInfo.setText("konec hry, vyhrál " + vysledek + " hráč !")
                             val intent = Intent(this, VyhraActivity::class.java)
@@ -78,6 +87,22 @@ class HraActivity : AppCompatActivity() {
                         }else{
                             if (vysledek == 3) textViewInfo.setText("konec hry, pole je zcela zaplneno !")
                         }
+
+                        //když hraje háč proti počítači
+                        if(pocitac.equals("true")) {
+                            //v pristim tahu hraje druhy hrac
+                            System.out.println("HRAJE POČÍTAČ")
+                            var konec: Boolean = false
+                            do{
+                                val radek = (0..velikost-1).random()
+                                System.out.println(radek)
+                                val sloupec = (0..velikost-1).random()
+                                System.out.println(sloupec)
+                                konec = true
+                            }while(konec)
+                        }
+
+
                     } else {
                         textViewInfo.setText("toto pole je již obsazeno !")
                     }
@@ -91,7 +116,7 @@ class HraActivity : AppCompatActivity() {
 
     }
 
-    fun zkontrolujVyhru(): Int{
+    private fun zkontrolujVyhru(): Int{
         // kontrola sloupcu
         for (i in 0 until velikost) {
             for (j in 0 until velikost - 3) {
