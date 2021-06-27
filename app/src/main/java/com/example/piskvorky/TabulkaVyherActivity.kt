@@ -30,7 +30,7 @@ class TabulkaVyherActivity : AppCompatActivity() {
         ).allowMainThreadQueries().build()
         butt_Vymaz.setOnClickListener {
             db.tabulkaVyherDao.clear()
-            textview_tabulka.setText("")
+            textview_tabulka.setText(" ")
         }
         butt_Back.setOnClickListener { clickBackListener() }
         textview_tabulka.setText(" ")
