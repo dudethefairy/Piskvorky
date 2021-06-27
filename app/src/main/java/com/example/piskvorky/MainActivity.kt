@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.RadioButton
+import androidx.room.Room
 
 class MainActivity : AppCompatActivity() {
 
     private val pocitac by lazy {findViewById<RadioButton>(R.id.radio_pocitac)}
+
 
     //Testovací commit
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -8,15 +8,17 @@
 
     <TextView
         android:id="@+id/textview_tabulka"
-        android:layout_width="307dp"
-        android:layout_height="523dp"
+        android:layout_width="325dp"
+        android:layout_height="470dp"
         android:background="#B8B9E6"
         android:capitalize="characters"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403" />
+        app:layout_constraintVertical_bias="0.498" />
 
     <TextView
         android:id="@+id/textView3"
@@ -67,4 +69,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.934" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="325dp"
+        android:layout_height="24dp"
+        android:background="#5B5C97"
+        android:text="  Jméno, Počet Tahů, Datum"
+        android:textAlignment="textStart"
+        android:textColor="#DADAF1"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="106dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

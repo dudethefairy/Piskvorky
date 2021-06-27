@@ -86,12 +86,12 @@ class HraActivity : AppCompatActivity() {
                                 button1.setImageDrawable(getResources().getDrawable(R.drawable.krizek)) //1. hráč má křížek, 2. kolecko
                                 hrajiciHrac = 2
                                 textViewInfo.setText("hraje 2. hráč ! : ")
-                                imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
+                                imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.kolecko25))
                             } else {
                                 button1.setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
                                 hrajiciHrac = 1
                                 textViewInfo.setText("hraje 1. hráč ! : ")
-                                imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.krizek))
+                                imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.krizek25))
                             }
                         }
 
@@ -104,7 +104,7 @@ class HraActivity : AppCompatActivity() {
                         if(pocitac.equals("true")) {
                             button1.setImageDrawable(getResources().getDrawable(R.drawable.krizek))
                             textViewInfo.setText("hraje počítač ! : ")
-                            imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.kolecko))
+                            imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.kolecko25))
                             var konec: Boolean = false
                             do{
                                 //genrovani radku a sloupce
@@ -123,7 +123,7 @@ class HraActivity : AppCompatActivity() {
                                     zjistiVysledek(vysledek)
                                     //po počítačí hraje opět hráč
                                     textViewInfo.setText("hraje hráč ! : ")
-                                    imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.krizek))
+                                    imageViewHrajici.setImageDrawable(getResources().getDrawable(R.drawable.krizek25))
                                 }else {
                                     //pole je obsazeno, nové generování
                                     konec = true
@@ -135,6 +135,7 @@ class HraActivity : AppCompatActivity() {
 
                     } else {
                         textViewInfo.setText("toto pole je již obsazeno !")
+                        imageViewHrajici.setImageDrawable(null)
                     }
 
                 }

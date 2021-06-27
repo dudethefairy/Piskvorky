@@ -26,26 +26,26 @@
     <TextView
         android:id="@+id/textViewInfo"
         android:layout_width="169dp"
-        android:layout_height="21dp"
+        android:layout_height="26dp"
         android:text="hraje 1. hráč"
         android:textAlignment="viewEnd"
-        android:textColor="@color/purple_500"
+        android:textColor="#5B5C97"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.306"
+        app:layout_constraintHorizontal_bias="0.342"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.835" />
+        app:layout_constraintVertical_bias="0.841" />
 
     <Button
         android:id="@+id/buttonKonec"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_500"
+        android:layout_width="134dp"
+        android:layout_height="48dp"
+        android:background="#5B5C97"
         android:text="konec"
-        android:textColor="@color/black"
+        android:textColor="#DADAF1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -57,10 +57,10 @@
         android:id="@+id/imageViewHrajici"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textViewInfo"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.839"
-        app:srcCompat="@drawable/krizek" />>
+        app:layout_constraintVertical_bias="0.842"
+        app:srcCompat="@drawable/krizek25" />>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Piskvorky">
         <activity android:name=".VyhraActivity"></activity>
+        <activity android:name=".TabulkaVyherActivity" ></activity>
         <activity android:name=".HraActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
