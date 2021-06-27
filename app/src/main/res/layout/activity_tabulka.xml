@@ -79,7 +79,7 @@
         android:textAlignment="textStart"
         android:textColor="#DADAF1"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textview_tabulka"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="106dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
