@@ -83,7 +83,7 @@
             android:layout_marginTop="10pt"
             android:layout_marginRight="20pt"
             android:background="#5B5C97"
-            android:text="Tanulka výher"
+            android:text="@string/tabulka_vyher"
             android:textColor="#DADAF1"
             tools:visibility="visible" />
     </LinearLayout>

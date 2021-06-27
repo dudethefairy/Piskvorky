@@ -10,23 +10,23 @@ import androidx.room.Room
 
 class TabulkaVyherActivity : AppCompatActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tabulka)
-        butt_Vymaz.setOnClickListener { clickVymazListener() }
-        butt_Back.setOnClickListener { clickBackListener() }
-    }
-
-    val db = Room.databaseBuilder(
-        applicationContext,
-        TabulkaVyherDatabase::class.java, "database-name"
-    ).allowMainThreadQueries().build()
-
     private val butt_Vymaz by lazy {
         findViewById<Button>(R.id.butt_Vymaz)
     }
     private val butt_Back by lazy {
         findViewById<Button>(R.id.butt_Back)
+    }
+    private val db = Room.databaseBuilder(
+        applicationContext,
+        TabulkaVyherDatabase::class.java, "database-name"
+    ).allowMainThreadQueries().build()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_tabulka)
+
+        butt_Vymaz.setOnClickListener { clickVymazListener() }
+        butt_Back.setOnClickListener { clickBackListener() }
     }
 
     public fun clickVymazListener(){

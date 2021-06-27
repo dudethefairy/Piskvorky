@@ -7,4 +7,5 @@
     <string name="radio_pocitac">RadioButton</string>
     <string name="radio_butt_hrac">Hráč vs. Hráč</string>
     <string name="radio_butt_pocitac">Hráč vs. Počítač</string>
+    <string name="tabulka_vyher">Tabulka vyher</string>
 </resources>
