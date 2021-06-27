@@ -151,7 +151,7 @@ class HraActivity : AppCompatActivity() {
         // kontrola sloupcu
         for (i in 0 until velikost) {
             for (j in 0 until velikost - 3) {
-                if (pole[i][j] === pole[i][j + 1] && pole[i][j] === pole[i][j + 2] && pole[i][j] === pole[i][j + 3] && pole[i][j] !== 0) {
+                if (pole[i][j] == pole[i][j + 1] && pole[i][j] == pole[i][j + 2] && pole[i][j] == pole[i][j + 3] && pole[i][j] != 0) {
                     return pole[i][j]
                 }
             }
@@ -159,7 +159,7 @@ class HraActivity : AppCompatActivity() {
         // kontrola radku
         for (j in 0 until velikost) {
             for (i in 0 until velikost - 3) {
-                if (pole[i][j] === pole[i + 1][j] && pole[i][j] === pole[i + 2][j] && pole[i][j] === pole[i + 3][j] && pole[i][j] !== 0) {
+                if (pole[i][j] == pole[i + 1][j] && pole[i][j] == pole[i + 2][j] && pole[i][j] == pole[i + 3][j] && pole[i][j] != 0) {
                     return pole[i][j]
                 }
             }
@@ -167,7 +167,7 @@ class HraActivity : AppCompatActivity() {
         //kontrola uhlopricek
         for (i in 3 until velikost) {
             for (j in 0 until i - 2) {
-                if (pole[i - j][j] === pole[i - j - 1][j + 1] && pole[i - j][j] === pole[i - j - 2][j + 2] && pole[i - j][j] === pole[i - j - 3][j + 3] && pole[i - j][j] !== 0) {
+                if (pole[i - j][j] == pole[i - j - 1][j + 1] && pole[i - j][j] == pole[i - j - 2][j + 2] && pole[i - j][j] == pole[i - j - 3][j + 3] && pole[i - j][j] != 0) {
                     return pole[i - j][j]
                 }
             }
@@ -175,7 +175,7 @@ class HraActivity : AppCompatActivity() {
 
         for (i in 0 until velikost - 3) {
             for (j in 0 until velikost - 3 - i) {
-                if (pole[i + j][velikost - 1 - j] === pole[i + j + 1][velikost - 2 - j] && pole[i + j][velikost - 1 - j] === pole[i + j + 2][velikost - 3 - j] && pole[i + j][velikost - 1 - j] === pole[i + j + 3][velikost - 4 - j] && pole[i + j][velikost - 1 - j] !== 0) {
+                if (pole[i + j][velikost - 1 - j] == pole[i + j + 1][velikost - 2 - j] && pole[i + j][velikost - 1 - j] == pole[i + j + 2][velikost - 3 - j] && pole[i + j][velikost - 1 - j] == pole[i + j + 3][velikost - 4 - j] && pole[i + j][velikost - 1 - j] != 0) {
                     return pole[i + j][velikost - 1 - j]
                 }
             }
@@ -183,7 +183,7 @@ class HraActivity : AppCompatActivity() {
 
         for (i in 0 until velikost - 3) {
             for (j in 0 until velikost - i - 3) {
-                if (pole[i + j][j] === pole[i + j + 1][j + 1] && pole[i + j][j] === pole[i + j + 2][j + 2] && pole[i + j][j] === pole[i + j + 3][j + 3] && pole[i + j][j] !== 0) {
+                if (pole[i + j][j] == pole[i + j + 1][j + 1] && pole[i + j][j] == pole[i + j + 2][j + 2] && pole[i + j][j] == pole[i + j + 3][j + 3] && pole[i + j][j] != 0) {
                     return pole[i + j][j]
                 }
             }
@@ -191,7 +191,7 @@ class HraActivity : AppCompatActivity() {
 
         for (j in 0 until velikost - 3) {
             for (i in 0 until velikost - j - 3) {
-                if (pole[j][i + j] === pole[j + 1][i + j + 1] && pole[j][i + j] === pole[j + 2][i + j + 2] && pole[j][i + j] === pole[j + 3][i + j + 3] && pole[j][i + j] !== 0) {
+                if (pole[j][i + j] == pole[j + 1][i + j + 1] && pole[j][i + j] == pole[j + 2][i + j + 2] && pole[j][i + j] == pole[j + 3][i + j + 3] && pole[j][i + j] != 0) {
                     return pole[j][i + j]
                 }
             }
@@ -202,7 +202,7 @@ class HraActivity : AppCompatActivity() {
 
         for (i in 0 until velikost) {
             for (j in 0 until velikost) {
-                if (pole[i][j] === 0) {
+                if (pole[i][j] == 0) {
                     konec = false
                 }
             }
