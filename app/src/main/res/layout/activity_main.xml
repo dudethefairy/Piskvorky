@@ -74,5 +74,17 @@
             android:text="@string/butt_newgame"
             android:textColor="#DADAF1"
             tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/butt_tabVyher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20pt"
+            android:layout_marginTop="10pt"
+            android:layout_marginRight="20pt"
+            android:background="#5B5C97"
+            android:text="Tanulka výher"
+            android:textColor="#DADAF1"
+            tools:visibility="visible" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,13 +15,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         butt_start.setOnClickListener {clickStartListener()}
+        butt_tabVyher.setOnClickListener {clickTabVyherListener()}
     }
 
     private val butt_start by lazy {
         findViewById<Button>(R.id.butt_start)
     }
+    private val butt_tabVyher by lazy {
+        findViewById<Button>(R.id.butt_tabVyher)
+    }
 
     public fun clickStartListener(){
+
+        val intent = Intent(this, HraActivity::class.java)
+
+        //předání zprávy zda hraje počítač
+        if(pocitac.isChecked) {
+            intent.putExtra("pocitac", "true")
+        }else{
+            intent.putExtra("pocitac", "false")
+        }
+        //spustení aktivity se samotnou hrou
+        startActivity(intent)
+    }
+
+    public fun clickTabVyherListener(){
 
         val intent = Intent(this, HraActivity::class.java)
 
