@@ -41,15 +41,9 @@ class MainActivity : AppCompatActivity() {
 
     public fun clickTabVyherListener(){
 
-        val intent = Intent(this, HraActivity::class.java)
+        val intent = Intent(this, TabulkaVyherActivity::class.java)
 
-        //předání zprávy zda hraje počítač
-        if(pocitac.isChecked) {
-            intent.putExtra("pocitac", "true")
-        }else{
-            intent.putExtra("pocitac", "false")
-        }
-        //spustení aktivity se samotnou hrou
+        //spustení aktivity tabulky výher
         startActivity(intent)
     }
 }

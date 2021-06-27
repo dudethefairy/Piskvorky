@@ -1,4 +1,42 @@
 package com.example.piskvorky
 
-class TabulkaVyherActivity {
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.RadioButton
+import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
+
+
+class TabulkaVyherActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_tabulka)
+        butt_Vymaz.setOnClickListener { clickVymazListener() }
+        butt_Back.setOnClickListener { clickBackListener() }
+    }
+
+    val db = Room.databaseBuilder(
+        applicationContext,
+        TabulkaVyherDatabase::class.java, "database-name"
+    ).allowMainThreadQueries().build()
+
+    private val butt_Vymaz by lazy {
+        findViewById<Button>(R.id.butt_Vymaz)
+    }
+    private val butt_Back by lazy {
+        findViewById<Button>(R.id.butt_Back)
+    }
+
+    public fun clickVymazListener(){
+        db.tabulkaVyherDao.clear()
+    }
+    public fun clickBackListener(){
+
+        val intent = Intent(this, MainActivity::class.java)
+
+        //vrácení se do menu
+        startActivity(intent)
+    }
 }
