@@ -33,8 +33,8 @@ class TabulkaVyherActivity : AppCompatActivity() {
             textview_tabulka.setText("")
         }
         butt_Back.setOnClickListener { clickBackListener() }
-        textview_tabulka.setText("")
-        db.tabulkaVyherDao.getVsechno().forEach{textview_tabulka.setText(textview_tabulka.text.toString() + it + "\n")}
+        textview_tabulka.setText(" ")
+        db.tabulkaVyherDao.getVsechno().forEach{textview_tabulka.setText(textview_tabulka.text.toString() + it + "\n ")}
     }
 
     public fun clickBackListener(){

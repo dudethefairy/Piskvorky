@@ -22,6 +22,6 @@ data class TabulkaVyher(
 
 ) {
     override fun toString(): String {
-        return "$jmeno   $pocet_tahu   $datum"
+        return "$jmeno,   $pocet_tahu,   $datum"
     }
 }
